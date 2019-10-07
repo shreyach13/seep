@@ -1,0 +1,7 @@
+*.swp
+*.pyc
+.terraform
+terraform.tfstate
+terraform.tfstate.backup
+*.zip
+*.patc
