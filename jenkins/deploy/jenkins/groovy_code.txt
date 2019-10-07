@@ -1,0 +1,48 @@
+#!/usr/bin/env groovy
+
+pipeline {
+    agent any
+
+    environment {
+        AWS_ACCESS_KEY_ID=''
+        AWS_SECRET_ACCESS_KEY=''
+        AWS_REGION='eu-central-1'
+    }
+
+    stages {
+        stage('Initialization') {
+            steps {
+                sh 'aws s3 cp s3://red-ericechter-terraform/input.csv .'
+                sh 'aws s3 cp s3://red-ericechter-terraform/install_terraform.sh .'
+                sh 'aws s3 cp s3://red-ericechter-terraform/generate_server_list.sh .'
+                sh 'bash install_terraform.sh'
+                sh 'sudo rm -f install_terraform.sh'
+                sh 'terraform --version'
+            }
+        }
+        stage('Retrieve Deploy Code for Build') {
+            steps {
+                sh 'rm -rf deploy_ec2'
+                sh 'git clone https://github.com/ericechter/deploy_ec2.git deploy_ec2'
+                sh 'bash generate_server_list.sh input.csv'
+                sh 'sudo rm -f deploy_ec2/terraform/modules/compute/input.tf input.csv generate_server_list.sh'
+                sh 'sudo mv input.tf deploy_ec2/terraform/modules/compute/input.tf'
+            }
+        }
+        stage('Terraform Plan') {
+            steps {
+                dir("deploy_ec2/terraform/app") {
+                    sh 'terraform init -backend-config=backend.hcl'
+                    sh 'terraform plan -out deploy.plan'
+                }
+            }
+        }
+        stage('Deploy EC2 Instances') {
+            steps {
+                dir("deploy_ec2/terraform/app") {
+                    sh 'terraform apply deploy.plan'
+                }
+            }
+        }
+    }
+}
