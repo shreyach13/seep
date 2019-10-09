@@ -1,0 +1,51 @@
+#!/usr/bin/env groovy
+
+pipeline {
+    agent any
+
+    environment {
+        AWS_DEFAULT_REGION='eu-west-1'
+    }
+
+    stages {
+        stage('WebApp Initialization') {
+            steps {
+                sh 'rm -rf fleetman'
+                sh 'git clone https://github.com/eddyniemeijer/fleetman.git'
+                sh 'ls fleetman'
+            }
+        }
+        stage('Docker images build stage') {
+            steps {
+                dir("fleetman"){
+                  sh '''
+                  $(aws ecr get-login --no-include-email --region eu-west-1)
+                  docker build -t queue queue
+                  docker build -t position-simulator position-simulator
+                  docker build -t api-gateway api-gateway
+                  docker build -t postion-tracker position-tracker
+                  docker build -t webapp webapp
+                  docker tag  queue              090107652998.dkr.ecr.eu-west-1.amazonaws.com/seep-ecr-queue
+                  docker push                    090107652998.dkr.ecr.eu-west-1.amazonaws.com/seep-ecr-queue
+                  docker tag  position-simulator 090107652998.dkr.ecr.eu-west-1.amazonaws.com/seep-ecr-posititon-simulator
+                  docker push                    090107652998.dkr.ecr.eu-west-1.amazonaws.com/seep-ecr-posititon-simulator
+                  docker tag  api-gateway        090107652998.dkr.ecr.eu-west-1.amazonaws.com/seep-ecr-posititon-api-gateway
+                  docker push                    090107652998.dkr.ecr.eu-west-1.amazonaws.com/seep-ecr-posititon-api-gateway
+                  docker tag  postion-tracker    090107652998.dkr.ecr.eu-west-1.amazonaws.com/seep-ecr-posititon-posititon-tracker
+                  docker push                    090107652998.dkr.ecr.eu-west-1.amazonaws.com/seep-ecr-posititon-posititon-tracker
+                  docker tag  webapp             090107652998.dkr.ecr.eu-west-1.amazonaws.com/seep-ecr-posititon-webapp
+                  docker push                    090107652998.dkr.ecr.eu-west-1.amazonaws.com/seep-ecr-posititon-webapp
+                  '''
+                }
+            }
+        }
+        stage('WebApp Apply') {
+            steps {
+                dir("fleetman"){
+                    sh 'echo Starting the deployment of the actual apps'
+                    sh 'kubectl apply -f queue/deploy.yaml'
+                }
+            }
+        }
+    }
+}
