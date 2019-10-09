@@ -15,3 +15,7 @@ module "seep-eks-eks" {
   mike_is_awesome = [module.seep-vpc-eks.seep_first_subnet, module.seep-vpc-eks.seep_second_subnet]
   default-vpc = module.seep-vpc-eks.vpc_id
   }
+
+module "seep-ecr" {
+  source = "../module/ecr"
+}
