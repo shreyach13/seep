@@ -1,4 +1,4 @@
-output "vpc" {
+output "vpc_id" {
   description="the default vpc name"
   value=aws_default_vpc.default_vpc.id
 }

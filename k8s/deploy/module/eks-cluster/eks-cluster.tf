@@ -6,11 +6,11 @@ module "my-cluster" {
 
   worker_groups = [
     {
-      instance_type = "m4.large"
+      instance_type = "t3.medium"
       asg_max_size  = 5
       tags = [{
-        key                 = "foo"
-        value               = "bar"
+        key                 = "Owner"
+        value               = "Seep"
         propagate_at_launch = true
       }]
     }
