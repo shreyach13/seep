@@ -1,3 +1,3 @@
 bucket = "seep-s3-terraform"
-region = var.region
+region = "eu-west-1"
 encrypt = true
