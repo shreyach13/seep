@@ -21,6 +21,7 @@ pipeline {
                 dir("config-testing"){
                     createVirtualEnv 'env'
                     sh 'aws ec2 describe-instance > sg.json'
+                    sh 'results=$(test_tags.py) && echo $results'
                 }
 
             }
