@@ -1,0 +1,30 @@
+#!/usr/bin/env groovy
+
+pipeline {
+    agent any
+
+    environment {
+        AWS_DEFAULT_REGION='eu-west-1'
+    }
+
+    stage('Preparation') {
+      checkout([$class: 'GitSCM',
+      branches: [[name: 'origin/shreya_branch']],
+      extensions: [[$class: 'WipeWorkspace']],
+      userRemoteConfigs: [[url: 'git@github.com:ericechter/seep.git']]
+      ])
+    }
+
+    stages {
+        stage('validate') {
+            steps {
+                dir("config-testing"){
+                    createVirtualEnv 'env'
+                    sh 'aws ec2 describe-instance > sg.json'
+                }
+
+            }
+        }
+
+    }
+}
