@@ -1,5 +1,5 @@
 module "my-cluster" {
-  source       = "git@github.com:terraform-aws-modules/terraform-aws-eks.git"
+  source       = "github.com/terraform-aws-modules/terraform-aws-eks.git"
   cluster_name = "seep-isawesome-eks-cluster"
   subnets      = var.mike_is_awesome
   vpc_id       = var.default-vpc
