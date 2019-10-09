@@ -3,7 +3,7 @@ variable "owner" {
 }
 
 variable "aws_account_owner" {
-  default = "426714351745"
+  default = "090107652998"
 }
 
 variable "from_port" {
@@ -21,6 +21,6 @@ variable "server_port" {
 variable "my_security_group" {
 }
 
-/*variable "iam_role" {
-  default = "seep-team-ec2-s3-read-only"
-}*/
+variable "iam_role" {
+  default = "seep-jenkins-role"
+}

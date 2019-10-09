@@ -16,8 +16,8 @@ resource "aws_key_pair" "eric-key" {
 
 resource "aws_instance" "webserver" {
   ami           = "${data.aws_ami.seep-ami-jenkins.id}"
-  instance_type = "t2.micro"
-  /*iam_instance_profile = var.iam_role*/
+  instance_type = "t3.medium"
+  iam_instance_profile = var.iam_role
   key_name = "eric-key"
   security_groups = [
     var.my_security_group

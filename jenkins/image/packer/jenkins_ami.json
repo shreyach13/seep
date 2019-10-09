@@ -8,7 +8,7 @@
     "access_key": "{{user `aws_access_key`}}",
     "secret_key": "{{user `aws_secret_key`}}",
     "region": "eu-west-1",
-    "instance_type": "t2.micro",
+    "instance_type": "t3.medium",
     "ssh_username": "ubuntu",
     "ami_name": "seep-ami-jenkins-{{timestamp}}",
 		"tags" : {
