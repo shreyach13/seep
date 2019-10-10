@@ -7,24 +7,25 @@ pipeline {
         AWS_DEFAULT_REGION='eu-west-1'
     }
 
-    stage('Preparation') {
-      checkout([$class: 'GitSCM',
-      branches: [[name: 'origin/shreya_branch']],
-      extensions: [[$class: 'WipeWorkspace']],
-      userRemoteConfigs: [[url: 'git@github.com:ericechter/seep.git']]
-      ])
-    }
-
     stages {
+      stage('Preparation') {
+        steps{
+            checkout([$class: 'GitSCM',
+            branches: [[name: 'origin/shreya_branch']],
+            extensions: [[$class: 'WipeWorkspace']],
+            userRemoteConfigs: [[url: 'https://github.com/ericechter/seep.git']]
+            ])
+        }
+    }
         stage('validate') {
-            steps {
+            steps{
                 dir("config-testing"){
                     createVirtualEnv 'env'
-                    sh 'aws ec2 describe-instance > sg.json'
+                    sh 'aws ec2 describe-instances > sg.json'
                     sh 'results=$(test_tags.py) && echo $results'
                 }
-
             }
+
         }
 
     }
