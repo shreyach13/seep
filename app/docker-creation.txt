@@ -1,0 +1,6 @@
+sh 'docker build -t ./queue/Dockerfile'
+sh 'docker build -t ./position-simulator/Dockerfile'
+sh 'docker build -t ./api-gateway/Dockerfile'
+sh 'docker build -t ./position-tracker/Dockerfile'
+sh 'docker build -t ./jenkins/Dockerfile'
+sh 'docker build -t ./webapp/Dockerfile'
