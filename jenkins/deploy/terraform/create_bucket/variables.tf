@@ -1,5 +1,5 @@
 variable "bucket_name" {
-  default = "seep-terraform"
+  default = "seep-terraform-nonprod"
 }
 
 variable "name_tag" {

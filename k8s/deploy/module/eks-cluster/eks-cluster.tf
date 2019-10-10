@@ -15,6 +15,7 @@ module "my-cluster" {
       }]
     }
   ]
+  map_users                            = var.map_users
 
   tags = {
     Environment = "Non-Production"

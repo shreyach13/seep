@@ -24,7 +24,7 @@ resource "aws_instance" "webserver" {
   ]
   tags = {
     Name        = "seep-jenkins-production"
-    owner       = var.owner
-    environment = "production"
+    Owner       = var.owner
+    Environment = "Non-production"
   }
 }

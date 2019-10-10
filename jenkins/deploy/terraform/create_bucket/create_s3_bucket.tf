@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 #basic example of creating s3 bucket
-resource "aws_s3_bucket" "seep-terraform" {
+resource "aws_s3_bucket" "seep-terraform-nonprod" {
   bucket = var.bucket_name
   region = "eu-west-1"
   tags = {
