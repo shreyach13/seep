@@ -21,7 +21,6 @@ pipeline {
                 dir("fleetman"){
                   sh '''
                   $(aws ecr get-login --no-include-email --region eu-west-1)
-                  aws eks --region eu-west-1 update-kubeconfig --name seep-isawesome-eks-cluster
                   make build
                   docker tag  queue              090107652998.dkr.ecr.eu-west-1.amazonaws.com/seep-ecr-queue
                   docker push                    090107652998.dkr.ecr.eu-west-1.amazonaws.com/seep-ecr-queue
@@ -46,7 +45,7 @@ pipeline {
                     make deploy
                     echo "Waiting for the pods to come online"
                     sleep 10
-                    kubectl describe services elb-service | grep "LoadBalancer Ingress"
+                    kubectl describe services elb-service | grep Ingres
                     '''
                 }
             }
