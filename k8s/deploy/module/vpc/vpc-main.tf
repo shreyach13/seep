@@ -2,7 +2,7 @@ resource "aws_default_vpc" "default_vpc" {
  tags = {
    Name = "Default VPC"
    Owner = "Seep"
-   Environment = "Non-Production"
+   Environment = "Production"
  }
 }
 
@@ -11,7 +11,9 @@ resource "aws_default_subnet" "default_az1" {
  tags = {
    Name = "Default subnet for ${var.region}"
    Owner = "Seep"
-   Environment = "Non-Production"
+   Environment = "Production"
+   KubernetesCluster = "seep-isawesome-eks-cluster"
+   kubernetes.io/role/elb = ""
  }
 }
 
@@ -20,6 +22,8 @@ resource "aws_default_subnet" "default_az2" {
  tags = {
    Name = "Default subnet for ${var.region}"
    Owner = "Seep"
-   Environment = "Non-Production"
+   Environment = "Production"
+   KubernetesCluster = "seep-isawesome-eks-cluster"
+   kubernetes.io/role/elb = ""
  }
 }
