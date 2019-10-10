@@ -1,8 +1,8 @@
 module "my-cluster" {
   source       = "github.com/terraform-aws-modules/terraform-aws-eks.git"
-  cluster_name = "seep-isawesome-eks-cluster"
+  cluster_name = "seep-isawesome-eks-cluster-np"
   subnets      = var.mike_is_awesome
-  vpc_id       = var.default-vpc
+  vpc_id       = var.default_vpc_np
 
   worker_groups = [
     {
@@ -15,7 +15,7 @@ module "my-cluster" {
       }]
     }
   ]
-  map_users                            = var.map_users
+  map_users = var.map_users
 
   tags = {
     Environment = "Non-Production"

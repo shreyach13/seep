@@ -1,5 +1,5 @@
-resource "aws_security_group" "seep-sg-controlpanel-eks"{
-  name = "seep-sg-controlpanel-eks"
+resource "aws_security_group" "seep-sg-controlpanel-eks-np"{
+  name = "seep-sg-controlpanel-eks-np"
   ingress {
     from_port = 443
     to_port = 443
@@ -14,14 +14,14 @@ resource "aws_security_group" "seep-sg-controlpanel-eks"{
     #prefix_list_ids = ["pl-12c4e678"]
   }
   tags = {
-     Name  = "seep-sg-controlpanel-eks"
+     Name  = "seep-sg-controlpanel-eks-np"
      Owner = "seep"
      Environment = "Non-Production"
    }
 }
 
-resource "aws_security_group" "seep-sg-workernode-eks"{
-  name = "seep-sg-workernode-eks"
+resource "aws_security_group" "seep-sg-workernode-eks-np"{
+  name = "seep-sg-workernode-eks-np"
   ingress {
     from_port = 443
     to_port = 443
@@ -36,7 +36,7 @@ resource "aws_security_group" "seep-sg-workernode-eks"{
     #prefix_list_ids = ["pl-12c4e678"]
   }
   tags = {
-     Name  = "seep-sg-workernode-eks"
+     Name  = "seep-sg-workernode-eks-np"
      Owner = "seep"
      Environment = "Non-Production"
    }
@@ -50,6 +50,6 @@ resource "aws_security_group_rule" "ingress_rule_worker" {
   # Opening to 0.0.0.0/0 can lead to security vulnerabilities.
   cidr_blocks = ["185.46.212.0/22"]# add a CIDR block here
 
-  security_group_id = aws_security_group.seep-sg-workernode-eks.id
-  depends_on = [aws_security_group.seep-sg-workernode-eks]
+  security_group_id = aws_security_group.seep-sg-workernode-eks-np.id
+  depends_on = [aws_security_group.seep-sg-workernode-eks-np]
 }
