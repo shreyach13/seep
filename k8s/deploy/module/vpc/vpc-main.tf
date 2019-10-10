@@ -11,7 +11,7 @@ resource "aws_default_subnet" "default_az1_np" {
  tags = {
    Name = "Default Np subnet for ${var.region}"
    Owner = "Seep"
-   "KubernetesCluster" = "seep-isawesome-eks-cluster"
+   "KubernetesCluster" = "seep-isawesome-eks-cluster-np"
    "kubernetes.io/role/elb" = ""
    Environment = "Non-Production"
  }
@@ -23,7 +23,7 @@ resource "aws_default_subnet" "default_az2_np" {
    Name = "Default Np subnet for ${var.region}"
    Owner = "Seep"
    Environment = "Non-Production"
-   "KubernetesCluster" = "seep-isawesome-eks-cluster"
+   "KubernetesCluster" = "seep-isawesome-eks-cluster-np"
    "kubernetes.io/role/elb" = ""
  }
 }
