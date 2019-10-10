@@ -8,6 +8,7 @@ module "my-cluster" {
     {
       instance_type = "t3.medium"
       asg_max_size  = 5
+      asg_desired_capacity = 2
       tags = [{
         key                 = "Owner"
         value               = "Seep"
