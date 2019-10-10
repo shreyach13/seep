@@ -5,6 +5,7 @@ pipeline {
 
     environment {
         AWS_DEFAULT_REGION='eu-west-1'
+        HOME='/home/ubuntu'
     }
 
     stages {
@@ -20,21 +21,18 @@ pipeline {
                 dir("fleetman"){
                   sh '''
                   $(aws ecr get-login --no-include-email --region eu-west-1)
-                  docker build -t queue queue
-                  docker build -t position-simulator position-simulator
-                  docker build -t api-gateway api-gateway
-                  docker build -t postion-tracker position-tracker
-                  docker build -t webapp webapp
+                  aws eks --region eu-west-1 update-kubeconfig --name seep-isawesome-eks-cluster
+                  make build
                   docker tag  queue              090107652998.dkr.ecr.eu-west-1.amazonaws.com/seep-ecr-queue
                   docker push                    090107652998.dkr.ecr.eu-west-1.amazonaws.com/seep-ecr-queue
-                  docker tag  position-simulator 090107652998.dkr.ecr.eu-west-1.amazonaws.com/seep-ecr-posititon-simulator
-                  docker push                    090107652998.dkr.ecr.eu-west-1.amazonaws.com/seep-ecr-posititon-simulator
-                  docker tag  api-gateway        090107652998.dkr.ecr.eu-west-1.amazonaws.com/seep-ecr-posititon-api-gateway
-                  docker push                    090107652998.dkr.ecr.eu-west-1.amazonaws.com/seep-ecr-posititon-api-gateway
-                  docker tag  postion-tracker    090107652998.dkr.ecr.eu-west-1.amazonaws.com/seep-ecr-posititon-posititon-tracker
-                  docker push                    090107652998.dkr.ecr.eu-west-1.amazonaws.com/seep-ecr-posititon-posititon-tracker
-                  docker tag  webapp             090107652998.dkr.ecr.eu-west-1.amazonaws.com/seep-ecr-posititon-webapp
-                  docker push                    090107652998.dkr.ecr.eu-west-1.amazonaws.com/seep-ecr-posititon-webapp
+                  docker tag  position-simulator 090107652998.dkr.ecr.eu-west-1.amazonaws.com/seep-ecr-position-simulator
+                  docker push                    090107652998.dkr.ecr.eu-west-1.amazonaws.com/seep-ecr-position-simulator
+                  docker tag  api-gateway        090107652998.dkr.ecr.eu-west-1.amazonaws.com/seep-ecr-api-gateway
+                  docker push                    090107652998.dkr.ecr.eu-west-1.amazonaws.com/seep-ecr-api-gateway
+                  docker tag  postion-tracker    090107652998.dkr.ecr.eu-west-1.amazonaws.com/seep-ecr-position-tracker
+                  docker push                    090107652998.dkr.ecr.eu-west-1.amazonaws.com/seep-ecr-position-tracker
+                  docker tag  webapp             090107652998.dkr.ecr.eu-west-1.amazonaws.com/seep-ecr-webapp
+                  docker push                    090107652998.dkr.ecr.eu-west-1.amazonaws.com/seep-ecr-webapp
                   '''
                 }
             }
@@ -42,8 +40,14 @@ pipeline {
         stage('WebApp Apply') {
             steps {
                 dir("fleetman"){
-                    sh 'echo Starting the deployment of the actual apps'
-                    sh 'kubectl apply -f queue/deploy.yaml'
+                    sh '''
+                    echo Starting the deployment of the actual apps
+                    aws eks --region eu-west-1 update-kubeconfig --name seep-isawesome-eks-cluster
+                    make deploy
+                    echo "Waiting for the pods to come online"
+                    sleep 10
+                    kubectl describe services elb-service | grep "LoadBalancer Ingress"
+                    '''
                 }
             }
         }
