@@ -6,8 +6,8 @@ resource "aws_ecr_repository" "seep-ecr-queue" {
   }
 }
 
-resource "aws_ecr_repository" "seep-ecr-posititon-simulator" {
-  name = "seep-ecr-posititon-simulator"
+resource "aws_ecr_repository" "seep-ecr-position-simulator" {
+  name = "seep-ecr-position-simulator"
   tags = {
     Environment = "Production"
     Owner = "seep"
@@ -15,15 +15,15 @@ resource "aws_ecr_repository" "seep-ecr-posititon-simulator" {
 }
 
 resource "aws_ecr_repository" "seep-ecr-api-gateway" {
-  name = "seep-ecr-posititon-api-gateway"
+  name = "seep-ecr-api-gateway"
   tags = {
     Environment = "Production"
     Owner = "seep"
   }
 }
 
-resource "aws_ecr_repository" "seep-ecr-posititon-tracker" {
-  name = "seep-ecr-posititon-posititon-tracker"
+resource "aws_ecr_repository" "seep-ecr-position-tracker" {
+  name = "seep-ecr-position-tracker"
   tags = {
     Environment = "Production"
     Owner = "seep"
@@ -31,7 +31,7 @@ resource "aws_ecr_repository" "seep-ecr-posititon-tracker" {
 }
 
 resource "aws_ecr_repository" "seep-ecr-webapp" {
-  name = "seep-ecr-posititon-webapp"
+  name = "seep-ecr-webapp"
   tags = {
     Environment = "Production"
     Owner = "seep"

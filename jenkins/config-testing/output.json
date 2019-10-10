@@ -1,0 +1,370 @@
+{
+    "Reservations": [
+        {
+            "Groups": [],
+            "Instances": [
+                {
+                    "AmiLaunchIndex": 0,
+                    "ImageId": "ami-0613bcd2653569c1d",
+                    "InstanceId": "i-0518fdb55362cfcdf",
+                    "InstanceType": "t3.medium",
+                    "KeyName": "eric-key",
+                    "LaunchTime": "2019-10-09T12:47:41.000Z",
+                    "Monitoring": {
+                        "State": "disabled"
+                    },
+                    "Placement": {
+                        "AvailabilityZone": "eu-west-1b",
+                        "GroupName": "",
+                        "Tenancy": "default"
+                    },
+                    "PrivateDnsName": "ip-172-31-13-26.eu-west-1.compute.internal",
+                    "PrivateIpAddress": "172.31.13.26",
+                    "ProductCodes": [],
+                    "PublicDnsName": "ec2-34-253-241-1.eu-west-1.compute.amazonaws.com",
+                    "PublicIpAddress": "34.253.241.1",
+                    "State": {
+                        "Code": 16,
+                        "Name": "running"
+                    },
+                    "StateTransitionReason": "",
+                    "SubnetId": "subnet-32115854",
+                    "VpcId": "vpc-2a29354c",
+                    "Architecture": "x86_64",
+                    "BlockDeviceMappings": [
+                        {
+                            "DeviceName": "/dev/sda1",
+                            "Ebs": {
+                                "AttachTime": "2019-10-09T12:47:45.000Z",
+                                "DeleteOnTermination": true,
+                                "Status": "attached",
+                                "VolumeId": "vol-037458111e66fd5d7"
+                            }
+                        }
+                    ],
+                    "ClientToken": "",
+                    "EbsOptimized": false,
+                    "EnaSupport": true,
+                    "Hypervisor": "xen",
+                    "IamInstanceProfile": {
+                        "Arn": "arn:aws:iam::090107652998:instance-profile/seep-jenkins-role",
+                        "Id": "AIPARJ6WVVODBZGFFAWBI"
+                    },
+                    "NetworkInterfaces": [
+                        {
+                            "Association": {
+                                "IpOwnerId": "amazon",
+                                "PublicDnsName": "ec2-34-253-241-1.eu-west-1.compute.amazonaws.com",
+                                "PublicIp": "34.253.241.1"
+                            },
+                            "Attachment": {
+                                "AttachTime": "2019-10-09T12:47:41.000Z",
+                                "AttachmentId": "eni-attach-09147310a58450c9f",
+                                "DeleteOnTermination": true,
+                                "DeviceIndex": 0,
+                                "Status": "attached"
+                            },
+                            "Description": "",
+                            "Groups": [
+                                {
+                                    "GroupName": "seep-sg-jenkins-production",
+                                    "GroupId": "sg-0982e0066b973a366"
+                                }
+                            ],
+                            "Ipv6Addresses": [],
+                            "MacAddress": "02:f7:fe:fb:77:58",
+                            "NetworkInterfaceId": "eni-0dd4a7ce60c9cb590",
+                            "OwnerId": "090107652998",
+                            "PrivateDnsName": "ip-172-31-13-26.eu-west-1.compute.internal",
+                            "PrivateIpAddress": "172.31.13.26",
+                            "PrivateIpAddresses": [
+                                {
+                                    "Association": {
+                                        "IpOwnerId": "amazon",
+                                        "PublicDnsName": "ec2-34-253-241-1.eu-west-1.compute.amazonaws.com",
+                                        "PublicIp": "34.253.241.1"
+                                    },
+                                    "Primary": true,
+                                    "PrivateDnsName": "ip-172-31-13-26.eu-west-1.compute.internal",
+                                    "PrivateIpAddress": "172.31.13.26"
+                                }
+                            ],
+                            "SourceDestCheck": true,
+                            "Status": "in-use",
+                            "SubnetId": "subnet-32115854",
+                            "VpcId": "vpc-2a29354c",
+                            "InterfaceType": "interface"
+                        }
+                    ],
+                    "RootDeviceName": "/dev/sda1",
+                    "RootDeviceType": "ebs",
+                    "SecurityGroups": [
+                        {
+                            "GroupName": "seep-sg-jenkins-production",
+                            "GroupId": "sg-0982e0066b973a366"
+                        }
+                    ],
+                    "SourceDestCheck": true,
+                    "Tags": [
+                        {
+                            "Key": "environment",
+                            "Value": "production"
+                        },
+                        {
+                            "Key": "Name",
+                            "Value": "seep-jenkins-production"
+                        },
+                        {
+                            "Key": "owner",
+                            "Value": "seep"
+                        }
+                    ],
+                    "VirtualizationType": "hvm",
+                    "CpuOptions": {
+                        "CoreCount": 1,
+                        "ThreadsPerCore": 2
+                    },
+                    "CapacityReservationSpecification": {
+                        "CapacityReservationPreference": "open"
+                    },
+                    "HibernationOptions": {
+                        "Configured": false
+                    }
+                }
+            ],
+            "OwnerId": "090107652998",
+            "ReservationId": "r-084b4958f2b9d93b5"
+        },
+        {
+            "Groups": [],
+            "Instances": [
+                {
+                    "AmiLaunchIndex": 0,
+                    "ImageId": "ami-059c6874350e63ca9",
+                    "InstanceId": "i-042bdec69c6edfcf6",
+                    "InstanceType": "t3.medium",
+                    "LaunchTime": "2019-10-09T13:15:18.000Z",
+                    "Monitoring": {
+                        "State": "enabled"
+                    },
+                    "Placement": {
+                        "AvailabilityZone": "eu-west-1a",
+                        "GroupName": "",
+                        "Tenancy": "default"
+                    },
+                    "PrivateDnsName": "ip-172-31-47-23.eu-west-1.compute.internal",
+                    "PrivateIpAddress": "172.31.47.23",
+                    "ProductCodes": [],
+                    "PublicDnsName": "ec2-34-244-180-147.eu-west-1.compute.amazonaws.com",
+                    "PublicIpAddress": "34.244.180.147",
+                    "State": {
+                        "Code": 16,
+                        "Name": "running"
+                    },
+                    "StateTransitionReason": "",
+                    "SubnetId": "subnet-3369e269",
+                    "VpcId": "vpc-2a29354c",
+                    "Architecture": "x86_64",
+                    "BlockDeviceMappings": [
+                        {
+                            "DeviceName": "/dev/xvda",
+                            "Ebs": {
+                                "AttachTime": "2019-10-09T13:15:19.000Z",
+                                "DeleteOnTermination": true,
+                                "Status": "attached",
+                                "VolumeId": "vol-0de5ef43869dd1460"
+                            }
+                        }
+                    ],
+                    "ClientToken": "7305b6c2-a352-88ff-e0c3-cb88115425ba_subnet-3369e269_1",
+                    "EbsOptimized": true,
+                    "EnaSupport": true,
+                    "Hypervisor": "xen",
+                    "IamInstanceProfile": {
+                        "Arn": "arn:aws:iam::090107652998:instance-profile/seep-isawesome-eks-cluster20191009131500989200000008",
+                        "Id": "AIPARJ6WVVODFYOZAE4N5"
+                    },
+                    "NetworkInterfaces": [
+                        {
+                            "Association": {
+                                "IpOwnerId": "amazon",
+                                "PublicDnsName": "ec2-34-244-180-147.eu-west-1.compute.amazonaws.com",
+                                "PublicIp": "34.244.180.147"
+                            },
+                            "Attachment": {
+                                "AttachTime": "2019-10-09T13:15:18.000Z",
+                                "AttachmentId": "eni-attach-0fc814d8270b954c6",
+                                "DeleteOnTermination": true,
+                                "DeviceIndex": 0,
+                                "Status": "attached"
+                            },
+                            "Description": "",
+                            "Groups": [
+                                {
+                                    "GroupName": "seep-isawesome-eks-cluster20191009131459529900000006",
+                                    "GroupId": "sg-0d6d0dc8c5f2423ec"
+                                }
+                            ],
+                            "Ipv6Addresses": [],
+                            "MacAddress": "0a:fa:1e:f5:3f:0a",
+                            "NetworkInterfaceId": "eni-03f25093f225acacb",
+                            "OwnerId": "090107652998",
+                            "PrivateDnsName": "ip-172-31-47-23.eu-west-1.compute.internal",
+                            "PrivateIpAddress": "172.31.47.23",
+                            "PrivateIpAddresses": [
+                                {
+                                    "Association": {
+                                        "IpOwnerId": "amazon",
+                                        "PublicDnsName": "ec2-34-244-180-147.eu-west-1.compute.amazonaws.com",
+                                        "PublicIp": "34.244.180.147"
+                                    },
+                                    "Primary": true,
+                                    "PrivateDnsName": "ip-172-31-47-23.eu-west-1.compute.internal",
+                                    "PrivateIpAddress": "172.31.47.23"
+                                },
+                                {
+                                    "Primary": false,
+                                    "PrivateDnsName": "ip-172-31-33-185.eu-west-1.compute.internal",
+                                    "PrivateIpAddress": "172.31.33.185"
+                                },
+                                {
+                                    "Primary": false,
+                                    "PrivateDnsName": "ip-172-31-43-72.eu-west-1.compute.internal",
+                                    "PrivateIpAddress": "172.31.43.72"
+                                },
+                                {
+                                    "Primary": false,
+                                    "PrivateDnsName": "ip-172-31-41-87.eu-west-1.compute.internal",
+                                    "PrivateIpAddress": "172.31.41.87"
+                                },
+                                {
+                                    "Primary": false,
+                                    "PrivateDnsName": "ip-172-31-33-54.eu-west-1.compute.internal",
+                                    "PrivateIpAddress": "172.31.33.54"
+                                },
+                                {
+                                    "Primary": false,
+                                    "PrivateDnsName": "ip-172-31-33-38.eu-west-1.compute.internal",
+                                    "PrivateIpAddress": "172.31.33.38"
+                                }
+                            ],
+                            "SourceDestCheck": true,
+                            "Status": "in-use",
+                            "SubnetId": "subnet-3369e269",
+                            "VpcId": "vpc-2a29354c",
+                            "InterfaceType": "interface"
+                        },
+                        {
+                            "Attachment": {
+                                "AttachTime": "2019-10-09T13:17:58.000Z",
+                                "AttachmentId": "eni-attach-0b5957b85f67a8a6f",
+                                "DeleteOnTermination": true,
+                                "DeviceIndex": 1,
+                                "Status": "attached"
+                            },
+                            "Description": "aws-K8S-i-042bdec69c6edfcf6",
+                            "Groups": [
+                                {
+                                    "GroupName": "seep-isawesome-eks-cluster20191009131459529900000006",
+                                    "GroupId": "sg-0d6d0dc8c5f2423ec"
+                                }
+                            ],
+                            "Ipv6Addresses": [],
+                            "MacAddress": "0a:a8:c3:37:89:9e",
+                            "NetworkInterfaceId": "eni-03ece9e1a85c86e89",
+                            "OwnerId": "090107652998",
+                            "PrivateDnsName": "ip-172-31-40-127.eu-west-1.compute.internal",
+                            "PrivateIpAddress": "172.31.40.127",
+                            "PrivateIpAddresses": [
+                                {
+                                    "Primary": true,
+                                    "PrivateDnsName": "ip-172-31-40-127.eu-west-1.compute.internal",
+                                    "PrivateIpAddress": "172.31.40.127"
+                                },
+                                {
+                                    "Primary": false,
+                                    "PrivateDnsName": "ip-172-31-47-120.eu-west-1.compute.internal",
+                                    "PrivateIpAddress": "172.31.47.120"
+                                },
+                                {
+                                    "Primary": false,
+                                    "PrivateDnsName": "ip-172-31-46-167.eu-west-1.compute.internal",
+                                    "PrivateIpAddress": "172.31.46.167"
+                                },
+                                {
+                                    "Primary": false,
+                                    "PrivateDnsName": "ip-172-31-42-163.eu-west-1.compute.internal",
+                                    "PrivateIpAddress": "172.31.42.163"
+                                },
+                                {
+                                    "Primary": false,
+                                    "PrivateDnsName": "ip-172-31-40-18.eu-west-1.compute.internal",
+                                    "PrivateIpAddress": "172.31.40.18"
+                                },
+                                {
+                                    "Primary": false,
+                                    "PrivateDnsName": "ip-172-31-34-64.eu-west-1.compute.internal",
+                                    "PrivateIpAddress": "172.31.34.64"
+                                }
+                            ],
+                            "SourceDestCheck": true,
+                            "Status": "in-use",
+                            "SubnetId": "subnet-3369e269",
+                            "VpcId": "vpc-2a29354c",
+                            "InterfaceType": "interface"
+                        }
+                    ],
+                    "RootDeviceName": "/dev/xvda",
+                    "RootDeviceType": "ebs",
+                    "SecurityGroups": [
+                        {
+                            "GroupName": "seep-isawesome-eks-cluster20191009131459529900000006",
+                            "GroupId": "sg-0d6d0dc8c5f2423ec"
+                        }
+                    ],
+                    "SourceDestCheck": true,
+                    "Tags": [
+                        {
+                            "Key": "Owner",
+                            "Value": "Seep"
+                        },
+                        {
+                            "Key": "Environment",
+                            "Value": "Non-Production"
+                        },
+                        {
+                            "Key": "aws:autoscaling:groupName",
+                            "Value": "seep-isawesome-eks-cluster-02019100913151427470000000e"
+                        },
+                        {
+                            "Key": "Name",
+                            "Value": "seep-isawesome-eks-cluster-0-eks_asg"
+                        },
+                        {
+                            "Key": "k8s.io/cluster/seep-isawesome-eks-cluster",
+                            "Value": "owned"
+                        },
+                        {
+                            "Key": "kubernetes.io/cluster/seep-isawesome-eks-cluster",
+                            "Value": "owned"
+                        }
+                    ],
+                    "VirtualizationType": "hvm",
+                    "CpuOptions": {
+                        "CoreCount": 1,
+                        "ThreadsPerCore": 2
+                    },
+                    "CapacityReservationSpecification": {
+                        "CapacityReservationPreference": "open"
+                    },
+                    "HibernationOptions": {
+                        "Configured": false
+                    }
+                }
+            ],
+            "OwnerId": "090107652998",
+            "RequesterId": "178953610797",
+            "ReservationId": "r-054f28f062a0e71c3"
+        }
+    ]
+}
